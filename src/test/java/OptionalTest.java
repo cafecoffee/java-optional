@@ -71,4 +71,11 @@ public class OptionalTest {
         assertEquals("test", name);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void whenOrElseThrowWorks_thenCorrect() {
+        String nullName = null;
+        String name = Optional.ofNullable(nullName).orElseThrow(
+                IllegalArgumentException::new
+        );
+    }
 }
